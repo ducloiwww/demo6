@@ -1,0 +1,98 @@
+/* style.css — modern polished look (uses Bootstrap utilities for layout) */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6c757d;
+  --accent: #6C63FF;
+  --glass: rgba(255,255,255,0.6);
+  --glass-dark: rgba(10,12,20,0.45);
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(34,41,47,0.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg);
+  color:#0f1720;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* NAV */
+.navbar-glass{
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.55));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 18px rgba(16,24,40,0.06);
+}
+.navbar-brand{color:var(--accent);font-weight:700}
+.navbar .nav-link{color: rgba(15,23,32,0.8)}
+.navbar .nav-link.active{color:var(--accent);font-weight:600}
+
+/* HERO */
+.hero-section{
+  padding:80px 0;
+  background: linear-gradient(135deg, rgba(108,99,255,0.12), rgba(6,78,255,0.06));
+}
+.display-5{letter-spacing:-0.02em}
+.accent{color:var(--accent)}
+
+/* AVATAR */
+.avatar-wrap{position:relative;width:260px;height:260px; margin:0 auto}
+.avatar{
+  width:100%;height:100%; object-fit:cover; border-radius:50%;
+  box-shadow: 0 12px 30px rgba(16,24,40,0.12);
+  border: 6px solid rgba(255,255,255,0.85);
+}
+.avatar-ring{
+  position:absolute; inset: -8px; border-radius:50%;
+  background: radial-gradient(circle at 30% 20%, rgba(108,99,255,0.14), transparent 25%), linear-gradient(90deg, rgba(108,99,255,0.06), rgba(6,78,255,0.02));
+  filter: blur(12px); z-index:-1;
+}
+
+/* CARDS */
+.card-ghost{background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85)); border:none; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+.project-thumb{height:220px; object-fit:cover; display:block; width:100%}
+.info-card{background:var(--card); border-radius:12px}
+
+/* ABOUT / STATS */
+.info-card h4{font-weight:700}
+.info-card p{color:var(--muted)}
+
+/* LIGHT / DARK THEME */
+body.dark{
+  --bg: #071126;
+  --card: #0f1724;
+  --muted: #98a0b3;
+  --accent: #7C6CFF;
+  background: linear-gradient(180deg,#05060a,#071126);
+  color:#e6eef8;
+}
+body.dark .navbar-glass{background: linear-gradient(180deg, rgba(14,16,22,0.55), rgba(6,8,12,0.45))}
+body.dark .card-ghost{background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); color: #e6eef8}
+
+/* FILTER BUTTONS */
+.filter-btn.active{background:linear-gradient(90deg,var(--accent), #4db6ff); color:white; border-color:transparent}
+
+/* FORM */
+.form-control:focus{box-shadow: 0 6px 18px rgba(108,99,255,0.12); border-color: var(--accent)}
+
+/* FOOTER */
+footer{background:#061221; color:#9fb0d8}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width:991px){
+  .avatar-wrap{width:200px;height:200px}
+  .project-thumb{height:180px}
+}
+@media (max-width:576px){
+  .hero-section{padding:40px 0}
+  .avatar-wrap{width:160px;height:160px}
+  .project-thumb{height:140px}
+}
+
+/* small utility for fade animations triggered by JS */
+.fade-in{opacity:0; transform: translateY(18px); transition: all .6s cubic-bezier(.2,.9,.3,1)}
+.fade-in.show{opacity:1; transform:none}
